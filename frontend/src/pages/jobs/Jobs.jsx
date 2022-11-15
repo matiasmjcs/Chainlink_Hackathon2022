@@ -1,6 +1,12 @@
+import { ethers } from "ethers"
+
 const Jobs = () => {
+
+
     return (
-        <div>Jobs</div>
+        <div>
+
+        </div>
     )
 }
 

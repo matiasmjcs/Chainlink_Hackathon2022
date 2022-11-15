@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap");
+.BoxConnect {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.568);
+  position: fixed;
+  top: 0;
+}
+
+.BoxConnect__div {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: rgb(255, 255, 255);
+  display: grid;
+  justify-items: center;
+  grid-auto-flow: row;
+  border-radius: 10px;
+}
+
+.BoxConnect__button {
+  background: transparent;
+  align-self: end;
+  margin: 30px;
+}
+
+.BoxConnect__metamask {
+  width: 60px;
+  height: 60px;
+  align-self: start;
+}
+
+.BoxConnect__text {
+  color: rgba(34, 34, 34, 0.6);
+  font-family: "Space Grotesk", sans-serif;
+}/*# sourceMappingURL=BoxConnect.css.map */

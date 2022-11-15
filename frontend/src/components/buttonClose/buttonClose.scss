@@ -1,0 +1,14 @@
+.container-icon {
+    font-size: 30px;
+    position: absolute;
+    color: #f66;
+    top: -3px;
+    right: 0px;
+    .icon{
+        animation: none;
+    }
+}
+
+.container-icon:hover {
+    color: #f88;
+}

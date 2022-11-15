@@ -1,0 +1,15 @@
+.container-icon {
+  font-size: 30px;
+  position: absolute;
+  color: #f66;
+  top: -3px;
+  right: 0px;
+}
+.container-icon .icon {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.container-icon:hover {
+  color: #f88;
+}/*# sourceMappingURL=buttonClose.css.map */
