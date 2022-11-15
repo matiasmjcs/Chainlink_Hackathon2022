@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap");
+button {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1568627451);
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  margin: 10px;
+  color: rgba(34, 34, 34, 0.6);
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+}
+
+button:hover {
+  scale: 1.05;
+}/*# sourceMappingURL=Button.css.map */

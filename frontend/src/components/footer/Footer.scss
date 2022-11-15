@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.footer {
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    margin: 50px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: $color3;
+}
+
+.footer__div {
+    display: grid;
+    justify-items: center;
+    margin: 10px;
+}
+
+.footer__a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+}

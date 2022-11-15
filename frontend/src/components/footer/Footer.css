@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap");
+.footer {
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  margin: 50px;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgba(255, 255, 255, 0.1568627451);
+}
+
+.footer__div {
+  display: grid;
+  justify-items: center;
+  margin: 10px;
+}
+
+.footer__a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}/*# sourceMappingURL=Footer.css.map */

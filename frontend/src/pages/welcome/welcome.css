@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap");
+.container {
+  border: solid rgba(255, 255, 255, 0.1568627451) 10px;
+  border-radius: 20px;
+  height: 500px;
+  display: grid;
+  place-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+@media screen and (min-width: 300px) {
+  .container {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .container {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+}
+
+.container__div {
+  display: grid;
+  justify-items: center;
+}
+
+.container__div h1 {
+  font-size: 50px;
+  letter-spacing: 3px;
+  color: rgba(34, 34, 34, 0.6);
+}
+
+.container__button {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+}
+@media screen and (min-width: 300px) {
+  .container__button {
+    grid-auto-flow: row;
+  }
+}
+@media screen and (min-width: 750px) {
+  .container__button {
+    grid-auto-flow: column;
+  }
+}/*# sourceMappingURL=welcome.css.map */

@@ -1,0 +1,12 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+background: radial-gradient(#2df, #d5f);
+/* background: radial-gradient(ellipse at top, #e66465, transparent),
+        radial-gradient(ellipse at bottom, #9198e5, transparent); */
+background-repeat: no-repeat;
+height: auto;
+}
+

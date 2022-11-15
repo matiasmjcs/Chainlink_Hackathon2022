@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap');
+@import url('https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap');
+$color1: #2df;
+$color2: #d5f;
+$color3: #ffffff28;
+$color4: rgba(34, 34, 34, 0.6);
+
+$breackpoints: (
+    sm:300px,
+    sm2:430px,
+    md:750px,
+    lg:1024px
+);
+
+@mixin media-up($breackpoint) {
+    @media screen and (min-width: map-get($breackpoints, $breackpoint)) {
+        @content;
+    }
+}
