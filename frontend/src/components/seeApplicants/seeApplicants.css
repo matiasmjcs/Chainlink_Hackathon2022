@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap");
+.SeeApplicantsContainer {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.568);
+  position: fixed;
+  top: 0;
+}
+
+.SeeApplicantsContainer__div {
+  position: relative;
+  width: 80%;
+  height: 600px;
+  background: rgb(255, 255, 255);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-auto-flow: row;
+  border-radius: 10px;
+  overflow-y: auto;
+  background: radial-gradient(#2df, #d5f);
+  padding-top: 20px;
+}
+
+.SeeApplicantsContainer__div::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.4);
+  height: 8px;
+  width: 8px;
+  border-radius: 5px;
+}
+
+.SeeApplicantsContainer__div::-webkit-scrollbar-thumb {
+  background: linear-gradient(#2df, #d5f);
+  border-radius: 5px;
+}
+
+.SeeApplicantsContainer__ul {
+  width: 80%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border-radius: 10px;
+  list-style: none;
+  font-family: "Space Grotesk", sans-serif;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1568627451);
+}/*# sourceMappingURL=seeApplicants.css.map */

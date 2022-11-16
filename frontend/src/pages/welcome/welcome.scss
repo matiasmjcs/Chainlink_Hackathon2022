@@ -24,10 +24,30 @@
     justify-items: center;
 }
 
-.container__div h1{
+.container__div h1
+{
     font-size: 50px;
     letter-spacing: 3px;
     color: $color4;
+    text-align: center;
+    position: relative;
+}
+
+.container__div h1::after
+{
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: -10px;
+    width: 3px;
+    height: 40px;
+    background: $color4;
+    animation: animation 1s linear infinite;
+}
+@keyframes animation {
+    to {
+        background: transparent;    
+    }
 }
 
 .container__button {

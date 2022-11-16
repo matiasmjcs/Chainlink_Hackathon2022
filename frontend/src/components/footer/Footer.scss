@@ -4,9 +4,17 @@
     display: grid;
     place-items: center;
     border-radius: 20px;
-    margin: 50px;
     font-family: 'Montserrat', sans-serif;
     background-color: $color3;
+        @include media-up(sm) {
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+        
+            @include media-up (md) {
+                margin-right: 50px;
+                margin-left: 50px;
+            }
 }
 
 .footer__div {
@@ -20,4 +28,10 @@
     color: black;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
+    transition: .2s;
+}
+
+.footer__a:hover
+{
+    opacity: .5;
 }

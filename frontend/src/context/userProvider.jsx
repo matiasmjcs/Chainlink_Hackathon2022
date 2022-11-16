@@ -1,10 +1,16 @@
 import { createContext, useState } from 'react'
 import Swal from 'sweetalert2'
 import Loading from '../components/Loading/Loading'
+import Abi from '../utils/jobsWeb3'
+import { ethers } from 'ethers'
 
 export const UserContext = createContext()
 
 const UserProvider = ({children}) => {
+
+    const address = "0xa91D8DA6CF00BE77Fd39BA43D10D504c80aAa52D";
+    // abi
+    const abi = Abi.abi;
 
     // useState to store connected wallet
     const [currentAccount, setCurrentAccount] = useState("");
@@ -17,7 +23,10 @@ const UserProvider = ({children}) => {
     const [red, setRed] = useState(false)
     const [redState, setRedState] = useState('Switch Network')
     const [conectado, setConectado] = useState(false)
+    const [txReverse, setTxReverse] = useState([])
 
+    let applicants = []
+    let Applicants = []
     //BoxMetamask
     const openBox = () => {
         setBox(true)
@@ -117,6 +126,65 @@ const UserProvider = ({children}) => {
         setCard(false)
     }
 
+    const viewapplicants = async (_Id) => {
+        try {
+            const { ethereum } = window;
+
+            if (ethereum) {
+                const provider = new ethers.providers.Web3Provider(ethereum, "any");
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(
+                    address,
+                    abi,
+                    signer
+                );
+                const tx = await contract.returnpostulant(_Id);
+                 applicants = [...tx].reverse()
+                console.log(applicants)
+                const viewapplicant = async (_aplicant) => {
+                    try {
+                        const { ethereum } = window;
+
+                        if (ethereum) {
+                            const provider = new ethers.providers.Web3Provider(ethereum, "any");
+                            const signer = provider.getSigner();
+                            const contract = new ethers.Contract(
+                                address,
+                                abi,
+                                signer
+                            );
+                            const tx = await contract.seeProfesionales(_aplicant);
+                            console.log(tx)
+                            Applicants.push(tx)
+                        }
+                    } catch (error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'an error has occurred',
+                        })
+                        console.log(error);
+                    }
+                }
+                applicants.map(tx => {
+                    viewapplicant(tx)
+                })
+
+                console.log(Applicants)
+
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'an error has occurred',
+            })
+            console.log(error);
+        }
+    }
+
+    
+
     return (
         <UserContext.Provider 
             value={{ 
@@ -135,7 +203,10 @@ const UserProvider = ({children}) => {
                 red,
                 Switch,
                 redState,
-                conectado
+                conectado,
+                viewapplicants,
+                applicants,
+                Applicants,
             }}>
             {children}
         </UserContext.Provider>

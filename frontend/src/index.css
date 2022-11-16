@@ -3,10 +3,23 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-background: radial-gradient(#2df, #d5f);
+    background: radial-gradient(#2df, #d5f);
 /* background: radial-gradient(ellipse at top, #e66465, transparent),
         radial-gradient(ellipse at bottom, #9198e5, transparent); */
-background-repeat: no-repeat;
-height: auto;
+    background-repeat: no-repeat;
+    height: auto;
 }
+
+body::-webkit-scrollbar {
+      background: rgba(0, 0, 0, .5);
+      width: 12px;
+      border-radius: 5px;
+  }
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(#2df, #d5f);
+    border-radius: 5px;
+  }
+
+
 

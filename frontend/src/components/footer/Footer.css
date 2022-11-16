@@ -4,9 +4,20 @@
   display: grid;
   place-items: center;
   border-radius: 20px;
-  margin: 50px;
   font-family: "Montserrat", sans-serif;
   background-color: rgba(255, 255, 255, 0.1568627451);
+}
+@media screen and (min-width: 300px) {
+  .footer {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .footer {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
 }
 
 .footer__div {
@@ -20,4 +31,9 @@
   color: black;
   font-size: 15px;
   font-family: "Montserrat", sans-serif;
+  transition: 0.2s;
+}
+
+.footer__a:hover {
+  opacity: 0.5;
 }/*# sourceMappingURL=Footer.css.map */

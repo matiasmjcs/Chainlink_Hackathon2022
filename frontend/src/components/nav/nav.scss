@@ -19,3 +19,8 @@
     margin-top: 20px;
     overflow-x: hidden;
 }
+
+.nav__link {
+    grid-column: 1/2;
+        justify-self: center;
+}

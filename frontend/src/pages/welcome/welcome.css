@@ -32,8 +32,33 @@
   font-size: 50px;
   letter-spacing: 3px;
   color: rgba(34, 34, 34, 0.6);
+  text-align: center;
+  position: relative;
 }
 
+.container__div h1::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  right: -10px;
+  width: 3px;
+  height: 40px;
+  background: rgba(34, 34, 34, 0.6);
+  -webkit-animation: animation 1s linear infinite;
+          animation: animation 1s linear infinite;
+}
+
+@-webkit-keyframes animation {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes animation {
+  to {
+    background: transparent;
+  }
+}
 .container__button {
   display: grid;
   align-items: center;

@@ -1,0 +1,121 @@
+@import '../../styles/variables.scss';
+
+ .containerJobs {
+    border-radius: 20px;
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    overflow-y: auto;
+    height: auto;
+    
+    @include media-up(sm) {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    
+    @include media-up (md) {
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+ }
+
+ .containerJobs__div {
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+    gap: 20px;
+    width: 100%;
+    margin: 20px;
+ }
+
+.containerJobs__ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    width: 100%;
+    height: 500px;
+    background: $color3;
+    font-family: 'Space Grotesk', sans-serif;
+    border-radius: 20px;
+    display: grid;
+    position: relative;
+    @include media-up(sm) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 300px 1fr 1fr 1fr 1fr;
+        overflow-wrap: break-word;
+    }
+    @include media-up(md) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 400px 1fr 1.2fr;
+
+    }
+ }
+
+   .containerJobs__ul::-webkit-scrollbar {
+       background: rgba(0, 0, 0, .4);
+       height: 8px;
+       width: 8px;
+       border-radius: 5px;
+   }
+
+   .containerJobs__ul::-webkit-scrollbar-thumb {
+       background: linear-gradient(#2df, #d5f);
+        border-radius: 5px;
+   }
+
+ 
+
+ .containerJobs__li {
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+ }
+
+ .containerJobs__li--id {
+     display: flex;
+     flex-direction: column;
+     margin: 15px;
+     width: 30px;
+ }
+
+ .containerJobs__button {
+    place-self: center;
+ }
+
+ .containerJobs__li--description {
+    margin: 15px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        overflow-y: auto;
+       width: 90%;
+    //    grid-column: 1/4;
+
+ }
+
+  .containerJobs__li--description::-webkit-scrollbar {
+      background: rgba(0, 0, 0, .4);
+      width: 8px;
+      border-radius: 5px;
+  }
+
+  .containerJobs__li--description::-webkit-scrollbar-thumb{
+    background: linear-gradient(#2df, #d5f);
+    border-radius: 5px;
+}
+
+.containerJobs__span--id {
+    width: 300px;
+}
+
+.containerJobs__divButton {
+    display: grid;
+  justify-items: center;
+}
+
+
