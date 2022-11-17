@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+input
+{
+    color: black;
+    outline: none;
+    letter-spacing: 1px;
+    padding-left: 10px ;
+    border: none;
+    height: 40px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    font-family: 'Space Grotesk', sans-serif;
+}

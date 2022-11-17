@@ -7,19 +7,21 @@
   display: grid;
   place-items: center;
   font-family: "Space Grotesk", sans-serif;
-  margin-top: 30px;
-  margin-bottom: 100px;
 }
 @media screen and (min-width: 300px) {
   .container {
     margin-right: 20px;
     margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
   }
 }
 @media screen and (min-width: 750px) {
   .container {
     margin-right: 50px;
     margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 100px;
   }
 }
 
@@ -72,5 +74,7 @@
 @media screen and (min-width: 750px) {
   .container__button {
     grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 }/*# sourceMappingURL=welcome.css.map */

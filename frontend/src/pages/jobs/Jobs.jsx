@@ -35,7 +35,7 @@ const Jobs = () => {
         setseeApplicants(false)
     }
 
-    const address = "0xa91D8DA6CF00BE77Fd39BA43D10D504c80aAa52D";
+    const address = "0x508241c6d14C91816c8d91FC1Ce1D4092470bbFc";
     // abi
     const abi = Abi.abi;
 

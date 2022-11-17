@@ -14,7 +14,12 @@ const Welcome = () => {
           <Button text='Search for a Job' />
           </NavLink>
         
+        <NavLink to='/postjobs'>
           <Button text='Post a Job' />
+        </NavLink>          
+
+          <Button text='register as a professional'/>
+          <Button text='look for a job/professional'/>
         </div>
 
       </div>

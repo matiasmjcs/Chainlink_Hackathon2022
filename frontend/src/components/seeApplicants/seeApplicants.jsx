@@ -7,7 +7,7 @@ import Loading from '../Loading/Loading'
 
 const SeeApplicants = ({close}) => {
 
-    const { Applicants } = useContext(UserContext)
+    let { Applicants } = useContext(UserContext)
     const [aplicants, setaplicants] = useState(false)
 
     useEffect(() => {
@@ -17,7 +17,6 @@ const SeeApplicants = ({close}) => {
     setTimeout(() => {
         setaplicants(true)
     }, 1000)
-
 
     return ReactDOM.createPortal(
         <div className='SeeApplicantsContainer'>
@@ -36,7 +35,10 @@ const SeeApplicants = ({close}) => {
                             </ul>
                         )).reverse())} 
 
-                <ButtonClose close={close} />
+                <ButtonClose close={()=>{
+                    close()
+                    Applicants.splice(0, Applicants.length)
+                    }} />
             </div>
         </div>
         ,

@@ -6,6 +6,7 @@
   border-radius: 20px;
   font-family: "Montserrat", sans-serif;
   background-color: rgba(255, 255, 255, 0.1568627451);
+  margin-bottom: 50px;
 }
 @media screen and (min-width: 300px) {
   .footer {
@@ -24,6 +25,7 @@
   display: grid;
   justify-items: center;
   margin: 10px;
+  text-align: center;
 }
 
 .footer__a {

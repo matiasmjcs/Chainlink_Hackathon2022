@@ -1,0 +1,72 @@
+@import '../../styles/variables.scss';
+
+.container-jobsPost
+{
+    border: solid $color3 10px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 100px;
+
+        @include media-up(sm) {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        @include media-up (md) {
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+        @include media-up(lg) {
+            margin-right: 80px;
+            margin-left: 80px;
+        }
+    }
+
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    @include media-up(sm){
+        width: 80%;
+    }
+    @include media-up(lg){
+        width: 70%;
+    }
+
+}
+
+.form h1
+{
+    color: rgba(34, 34, 34, 0.6);
+}
+
+.container-input
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+textarea {
+    color: black;
+    outline: none;
+    letter-spacing: 1px;
+    padding-left: 10px ;
+    border: none;
+    height: 80px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    resize: none;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.container-button
+{
+    margin: 20px 0;
+}

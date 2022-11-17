@@ -4,7 +4,6 @@ pragma solidity ^0.8.17;
 pragma experimental ABIEncoderV2;
 
 contract jobsWeb3 {
-
     address payable owner;
 
     constructor() {
@@ -36,7 +35,7 @@ contract jobsWeb3 {
         uint256 vacancies,
         uint256 salary,
         string Contact,
-        bytes32 id 
+        bytes32 id
     );
 
     struct profesional {
@@ -61,17 +60,13 @@ contract jobsWeb3 {
 
     work[] _jobspremium;
 
-
     profesional[] profesionales;
 
     address[] postulant;
 
-
     mapping(bytes32 => work) public seeWork;
 
-
     mapping(address => profesional) public seeProfesionales;
-
 
     function postWork(
         string memory _MarketStall,
@@ -81,11 +76,19 @@ contract jobsWeb3 {
         uint256 _vacancies,
         uint256 _salary,
         string memory _Contact
-    ) public payable {
-        // require(msg.value == 900000000000 wei);
+    ) public 
+     {
+        
 
-        bytes32 _id = keccak256(abi.encodePacked(_description, _MarketStall, _salary, _vacancies, _Contact));
-
+        bytes32 _id = keccak256(
+            abi.encodePacked(
+                _description,
+                _MarketStall,
+                _salary,
+                _vacancies,
+                _Contact
+            )
+        );
 
         jobs.push(
             work(
@@ -98,7 +101,6 @@ contract jobsWeb3 {
                 _Contact,
                 _id,
                 postulant
-        
             )
         );
 
@@ -134,11 +136,18 @@ contract jobsWeb3 {
         uint256 _vacancies,
         uint256 _salary,
         string memory _Contact
-    ) public payable {
-        // require(msg.value == 900000000000 wei);
+    ) public  {
+        
 
-        bytes32 _id = keccak256(abi.encodePacked(_description, _MarketStall, _salary, _vacancies, _Contact));
-
+        bytes32 _id = keccak256(
+            abi.encodePacked(
+                _description,
+                _MarketStall,
+                _salary,
+                _vacancies,
+                _Contact
+            )
+        );
 
         jobsPremium.push(
             work(
@@ -151,7 +160,6 @@ contract jobsWeb3 {
                 _Contact,
                 _id,
                 postulant
-        
             )
         );
 
@@ -179,24 +187,13 @@ contract jobsWeb3 {
         );
     }
 
-
-
-
-    function postulate(
+    function registerProfesional(
         string memory _name,
         string memory _surname,
         string memory _presentationLetter,
         string memory _portfolio,
-        string memory _linkedin,
-        bytes32 _ID
+        string memory _linkedin
     ) public {
-
-        work storage _trabajo  = seeWork[_ID];
-
-        _trabajo.applicants.push(msg.sender);
-
-         _trabajo = seeWork[_ID];
-
         profesionales.push(
             profesional(
                 _name,
@@ -207,49 +204,54 @@ contract jobsWeb3 {
             )
         );
 
-    
-
         seeProfesionales[msg.sender] = profesional(
-                _name,
-                _surname,
-                _presentationLetter,
-                _portfolio,
-                _linkedin
-            );
+            _name,
+            _surname,
+            _presentationLetter,
+            _portfolio,
+            _linkedin
+        );
 
-        emit newProfesional (
-                _name,
-                _surname,
-                _presentationLetter,
-                _portfolio,
-                _linkedin
+        emit newProfesional(
+            _name,
+            _surname,
+            _presentationLetter,
+            _portfolio,
+            _linkedin
         );
     }
 
-    function returnjobs() public view returns(work[] memory) {
+    function postulate(bytes32 _ID) public {
+        work storage _trabajo = seeWork[_ID];
+        _trabajo.applicants.push(msg.sender);
+        _trabajo = seeWork[_ID];
+    }
+
+    function returnjobs() public view returns (work[] memory) {
         return jobs;
     }
 
-
-     function returnjobsPremium() public view returns(work[] memory) {
+    function returnjobsPremium() public view returns (work[] memory) {
         return jobsPremium;
     }
 
     function restarting() public {
-        jobsPremium =  _jobspremium;
+        jobsPremium = _jobspremium;
     }
 
-    function returnpostulant(bytes32 _id) public view returns(address[] memory) {
+    function returnpostulant(bytes32 _id)
+        public
+        view
+        returns (address[] memory)
+    {
         work memory _trabajo = seeWork[_id];
-        address[] memory  _postulant = _trabajo.applicants;
+        address[] memory _postulant = _trabajo.applicants;
         return _postulant;
     }
 
-    function returnProfesionales() public view returns(profesional[] memory) {
+    function returnProfesionales() public view returns (profesional[] memory) {
         return profesionales;
-        
     }
-
 
     function withdraw() public payable onlyOwner {
         require(owner.send(address(this).balance));

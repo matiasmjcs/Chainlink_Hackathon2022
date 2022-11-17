@@ -7,15 +7,17 @@
     display: grid;
     place-items: center;
     font-family: 'Space Grotesk', sans-serif;
-    margin-top: 30px;
-    margin-bottom: 100px;
     @include media-up(sm) {
         margin-right: 20px;
         margin-left: 20px;
+        margin-top: 30px;
+        margin-bottom: 50px;
     }
     @include media-up (md) {
         margin-right: 50px;
         margin-left: 50px;
+        margin-top: 30px;
+        margin-bottom: 100px;
     }
 }
 
@@ -59,5 +61,7 @@
     }
     @include media-up(md) {
         grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 }
