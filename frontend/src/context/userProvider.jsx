@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react'
-import Swal from 'sweetalert2'
 import Loading2 from '../components/loading2/Loading'
 import Abi from '../utils/jobsWeb3'
 import { ethers } from 'ethers'
@@ -59,11 +58,8 @@ const UserProvider = ({children}) => {
         catch {
             setRed(false)
             setRedState('Switch Network')
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: ' connect to the binance smart chain network',
-            })
+            setError(true)
+            setError_('connect to the mumbai chaid network')
 
         }
       

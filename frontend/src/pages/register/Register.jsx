@@ -38,8 +38,7 @@ const Register = () => {
         })
     }
 
-    const register = async (e) => {
-        e.preventDefault()
+    const register = async () => {
         try {
             const { ethereum } = window;
 
@@ -67,13 +66,29 @@ const Register = () => {
             console.log(error);
         }
     }
+    const aprobado = (res) => {
+        setError(true)
+        setError_(res)
+    }
+    const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
+        const handleSubmit = (e) => {
+            e.preventDefault()
+
+            if (!input.name.trim() || !input.lastname.trim() || !input.presentation.trim() || !input.email.trim() || !input.portfolio.trim() || !input.linkedin.trim()){
+                return aprobado('All fields are required')
+            } 
+            if(!emailRegex.test(input.email)){
+                return aprobado('Enter a valid email format')
+            }
+            register()
+        }
 
     return (
         <div className="container-register">
             {truee ? <Loading/> : 
             <>
-            <form onSubmit={register} className="form">
+            <form onSubmit={handleSubmit} className="form">
                 <h1>Register</h1>
                 <div className="container-input">
                     <Input placeholder='name' onChange={handleChange} value={input.name} name='name' type='text' />
@@ -94,5 +109,6 @@ const Register = () => {
         </div>
     )
 }
+
 
 export default Register

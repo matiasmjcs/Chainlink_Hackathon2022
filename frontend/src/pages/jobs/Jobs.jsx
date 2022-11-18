@@ -40,13 +40,16 @@ const Jobs = () => {
                         <div className="containerJobs__div">
                         {searchJob.map((tx, i) => (
                                <ul key={i} className="containerJobs__ul">
+                                   <li className="containerJobs__li--description">  <span>Job description: </span> <span>{tx.description}</span> </li>
+                                <div className="containerJobs__lidiv">
+
                                    <li className="containerJobs__li"><span>Job title:  </span> <span> {tx.MarketStall}</span> </li>
                                     <li className="containerJobs__li"> <span>Name of the company:  </span><span> {tx.business}</span> </li>
                                    <li className="containerJobs__li"> <span>Country:  </span> <span>{tx.country}</span> </li>
-                                   <li className="containerJobs__li--description">  <span>Job description: </span> <span>{tx.description}</span> </li>
                                    <li className="containerJobs__li"> <span>Salary:  </span> <span>{tx.salary.toNumber()}</span> </li>
                                    <li className="containerJobs__li"> <span>vacancies:  </span> <span>{tx.vacancies.toNumber()}</span> </li>
                                 <li className="containerJobs__li--id"><span>Job Id:  </span> <span className="containerJobs__span--id">{tx.id}</span> </li>
+                                   
                                 <div className="containerJobs__divButton">
                                     <Button onClick={() => {
                                         Postulate(tx.id)
@@ -65,6 +68,7 @@ const Jobs = () => {
                                     } className='containerJobs__button' text='See applicants' />
                                     
                                    </div>
+                                </div>
                                     
                             </ul>))}
                          </div>

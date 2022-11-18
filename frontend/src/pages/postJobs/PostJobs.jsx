@@ -3,7 +3,6 @@ import Input from "../../components/input/Input"
 import { useState, useContext } from 'react'
 import './PostJobs.css'
 import Check from "../../components/Check/Check"
-import Swal from 'sweetalert2'
 import { ethers } from "ethers"
 import Abi from '../../utils/jobsWeb3'
 import Loading from '../../components/Loading/Loading'
@@ -103,10 +102,24 @@ const PostJobs = () => {
         }
     }
 
+    const aprobado = (response) => {
+        setError(true)
+        setError_(response)
+    }
+    const emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(typeof Number(input.salary))
 
+        if (!input.marketstal.trim() || !input.business.trim() || !input.country.trim() || !input.description.trim() || !input.contact.trim() ){
+            return aprobado('All fields are required')
+        }
+        if (input.vacancies === 0 || input.salary === 0){
+            return aprobado('All fields are required')
+        }
+        if (!emailRegex.test(input.contact)){
+            return aprobado('Enter a valid email format')
+        }
         if (input.checkbox === false) {
             postJobs() 
             return

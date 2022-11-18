@@ -19,6 +19,7 @@
   display: grid;
   justify-items: center;
   grid-auto-flow: row;
+  align-items: center;
   border-radius: 10px;
 }
 

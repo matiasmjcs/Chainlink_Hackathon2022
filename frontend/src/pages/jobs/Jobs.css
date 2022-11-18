@@ -48,14 +48,14 @@
 @media screen and (min-width: 300px) {
   .containerJobs__ul {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 300px 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 250px;
     overflow-wrap: break-word;
   }
 }
 @media screen and (min-width: 750px) {
   .containerJobs__ul {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 400px 1fr 1.2fr;
+    grid-template-rows: 1fr;
   }
 }
 
@@ -69,6 +69,10 @@
 .containerJobs__ul::-webkit-scrollbar-thumb {
   background: linear-gradient(#2df, #d5f);
   border-radius: 5px;
+}
+
+.containerJobs__lidiv {
+  overflow-wrap: break-word;
 }
 
 .containerJobs__li {
@@ -110,7 +114,7 @@
 }
 
 .containerJobs__span--id {
-  width: 300px;
+  min-width: 250px;
 }
 
 .containerJobs__divButton {

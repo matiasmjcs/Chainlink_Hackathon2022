@@ -27,14 +27,17 @@ const SeeApplicants = ({close}) => {
                     !aplicants ? <Loading/> :
                         (Applicants.map((item) => (
                             <ul className='SeeApplicantsContainer__ul'>
-                                <li><stron>Name: </stron> {item.name}</li>
-                                <li><stron>Last Name: </stron> {item.surname}</li>
-                                <li><stron>Presentation Letter: </stron> {item.presentationLetter}</li>
-                                <li><stron>Email: </stron> {item.email}</li>
-                                <li><stron>linkedin: </stron> {item.linkedin}</li>
-                                <li><stron>Portfolio: </stron> {item.portfolio}</li>
+                                <div className='SeeApplicantsContainer__li'>
+                                    <li><stron>Name: </stron> {item.name}</li>
+                                    <li><stron>Last Name: </stron> {item.surname}</li>
+                                    <li><stron>Email: </stron> {item.email}</li>
+                                    <li><stron>linkedin: </stron> {item.linkedin}</li>
+                                    <li><stron>Portfolio: </stron> {item.portfolio}</li>
+                                </div>
+                              
+                                <li className='SeeApplicantsContainer__li--presentation'><stron>Presentation Letter: </stron> {item.presentationLetter}</li>
                             </ul>
-                        )).reverse())} 
+                        )))} 
 
                 <ButtonClose close={()=>{
                     close()

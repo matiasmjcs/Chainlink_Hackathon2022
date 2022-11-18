@@ -40,13 +40,39 @@
 
 .SeeApplicantsContainer__ul {
   width: 80%;
-  height: 200px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  margin: 20px;
   border-radius: 10px;
   list-style: none;
   font-family: "Space Grotesk", sans-serif;
   padding: 10px;
   background: rgba(255, 255, 255, 0.1568627451);
+}
+@media screen and (min-width: 300px) {
+  .SeeApplicantsContainer__ul {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 250px;
+    height: 500px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .SeeApplicantsContainer__ul {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+.SeeApplicantsContainer__li--presentation {
+  overflow-y: auto;
+}
+@media screen and (min-width: 750px) {
+  .SeeApplicantsContainer__li--presentation {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.SeeApplicantsContainer__li {
+  display: grid;
+  gap: 20px;
 }/*# sourceMappingURL=seeApplicants.css.map */
