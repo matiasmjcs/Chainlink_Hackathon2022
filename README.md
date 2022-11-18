@@ -84,7 +84,7 @@
   
   
     
- # I first set it to run every 3 minutes to make sure it's working properly.
+ # I first set it to run every 2 minutes to make sure it's working properly.
     
  
   
