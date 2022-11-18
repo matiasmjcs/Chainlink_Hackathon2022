@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.container-register
+{
+    border: solid $color3 10px;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        font-family: 'Space Grotesk', sans-serif;
+        margin-top: 30px;
+        margin-bottom: 100px;
+        min-height: 500px;
+    
+        @include media-up(sm) {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+    
+        @include media-up (md) {
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+    
+        @include media-up(lg) {
+            margin-right: 80px;
+            margin-left: 80px;
+        }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+
+    @include media-up(sm) {
+        width: 80%;
+    }
+
+    @include media-up(lg) {
+        width: 70%;
+    }
+
+}

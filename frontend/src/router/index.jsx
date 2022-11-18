@@ -3,6 +3,7 @@ import LayoutPublic from '../layout/LayoutPublic'
 import Jobs from '../pages/jobs/Jobs'
 import PostJobs from '../pages/postJobs/PostJobs'
 import Welcome from '../pages/welcome/welcome'
+import Register from '../pages/register/Register'
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: '/postjobs',
                 element: <PostJobs/>
+            },
+            {
+                path: '/register',
+                element: <Register />
             }
         ]
     }

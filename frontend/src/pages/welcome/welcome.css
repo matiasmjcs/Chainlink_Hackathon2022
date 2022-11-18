@@ -74,7 +74,7 @@
 @media screen and (min-width: 750px) {
   .container__button {
     grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
   }
 }/*# sourceMappingURL=welcome.css.map */

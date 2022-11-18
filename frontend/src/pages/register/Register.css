@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&family=Space+Grotesk&display=swap");
 @import url("https://fonts.googleapis.com/css2? family= Press+Start+2P & family= Space+Grotesk & display=swap");
-.container-jobsPost {
+.container-register {
   border: solid rgba(255, 255, 255, 0.1568627451) 10px;
   border-radius: 20px;
   display: grid;
@@ -11,19 +11,19 @@
   min-height: 500px;
 }
 @media screen and (min-width: 300px) {
-  .container-jobsPost {
+  .container-register {
     margin-right: 20px;
     margin-left: 20px;
   }
 }
 @media screen and (min-width: 750px) {
-  .container-jobsPost {
+  .container-register {
     margin-right: 50px;
     margin-left: 50px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .container-jobsPost {
+  .container-register {
     margin-right: 80px;
     margin-left: 80px;
   }
@@ -44,31 +44,4 @@
   .form {
     width: 70%;
   }
-}
-
-.form h1 {
-  color: rgba(34, 34, 34, 0.6);
-}
-
-.container-input {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-textarea {
-  color: black;
-  outline: none;
-  letter-spacing: 1px;
-  padding-left: 10px;
-  border: none;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  resize: none;
-  font-family: "Space Grotesk", sans-serif;
-}
-
-.container-button {
-  margin: 20px 0;
-}/*# sourceMappingURL=PostJobs.css.map */
+}/*# sourceMappingURL=Register.css.map */

@@ -9,6 +9,7 @@
     font-family: 'Space Grotesk', sans-serif;
     margin-top: 30px;
     margin-bottom: 100px;
+    min-height: 500px;
 
         @include media-up(sm) {
             margin-right: 20px;

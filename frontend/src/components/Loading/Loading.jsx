@@ -3,7 +3,8 @@ import './Loading.css'
 
 const Loading = () => {
   return (
-    <div  class="spinner"></div>
+    <div class="loader">
+    </div>
   )
 }
 

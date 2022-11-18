@@ -1,18 +1,27 @@
 import Button from "../../components/Button/Button"
 import Input from "../../components/input/Input"
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './PostJobs.css'
 import Check from "../../components/Check/Check"
 import Swal from 'sweetalert2'
 import { ethers } from "ethers"
 import Abi from '../../utils/jobsWeb3'
+import Loading from '../../components/Loading/Loading'
+import { UserContext } from "../../context/userProvider"
+import Error from "../../components/error/Error"
+import Success from "../../components/success/Seccess"
 
 
 const PostJobs = () => {
 
-    const address = "0x508241c6d14C91816c8d91FC1Ce1D4092470bbFc";
+    const { error, setError, setError_, success, setSuccess, setSuccess_} = useContext(UserContext)
+
+    const address = "0xCF71c02a6e63177f4549e3a15a7d83Ee56E04de9";
     // abi
     const abi = Abi.abi;
+
+    const [truee, settruee] = useState(false)
+
 
 
     const initialState = {
@@ -42,6 +51,7 @@ const PostJobs = () => {
             const { ethereum } = window;
 
             if (ethereum) {
+                settruee(true)
                 const provider = new ethers.providers.Web3Provider(ethereum, "any");
                 const signer = provider.getSigner();
                 const contract = new ethers.Contract(
@@ -51,21 +61,16 @@ const PostJobs = () => {
                 );
                 const tx = await contract.postWork(input.marketstal, input.business, input.country, input.description, input.vacancies, input.salary, input.contact);
                 await tx.wait();
+                settruee(false)
                 setInput(initialState)
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: `Hash Transactions: ${tx.hash}`,
-                    showConfirmButton: true
-                })
+                setSuccess(true)
+                setSuccess_('the work has been published successfully')
               
             }
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'an error has occurred',
-            })
+            setError(true)
+            setError_('An error occurred while posting the job')
+            settruee(false)
             console.log(error);
         }
     }
@@ -75,6 +80,7 @@ const PostJobs = () => {
             const { ethereum } = window;
 
             if (ethereum) {
+                settruee(true)
                 const provider = new ethers.providers.Web3Provider(ethereum, "any");
                 const signer = provider.getSigner();
                 const contract = new ethers.Contract(
@@ -84,20 +90,15 @@ const PostJobs = () => {
                 );
                 const tx = await contract.postWorkPremium(input.marketstal, input.business, input.country, input.description, input.vacancies, input.salary, input.contact);
                 await tx.wait();
+                settruee(false)
                 setInput(initialState)
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: `Hash Transactions: ${tx.hash}`,
-                    showConfirmButton: true
-                })
+                setSuccess(true)
+                setSuccess_('the work has been published successfully')
             }
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'an error has occurred',
-            })
+            setError(true)
+            setError_('an error occurred while publishing the premium work')
+            settruee(false)
             console.log(error);
         }
     }
@@ -117,6 +118,8 @@ const PostJobs = () => {
 
     return (
         <div className="container-jobsPost">
+            {truee ? <Loading/> :
+            <>
             <form onSubmit={handleSubmit} className="form">
                 <h1>Post Jobs</h1>
                 <div className="container-input">
@@ -130,9 +133,12 @@ const PostJobs = () => {
                     <Check name='checkbox' type='checkbox' onChange={handleChange} checked={input.checkbox}/>
                 </div> 
                 <div className="container-button">
-                    <Button text='Submit'/>
+                            <Button text='post'/>
                 </div>
             </form>
+            </>}
+            {error && <Error /> }
+            {success && <Success/>}
         </div>
     )
 }

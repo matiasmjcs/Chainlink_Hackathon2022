@@ -61,7 +61,7 @@
     }
     @include media-up(md) {
         grid-auto-flow: column;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
     }
 }

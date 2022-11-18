@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = () => {
   
-  const { box, openBox, conectado, currentAccount } = useContext(UserContext)
+  const { box, openBox, active, view } = useContext(UserContext)
 
 
 
@@ -18,7 +18,7 @@ const Nav = () => {
       <NavLink className='nav__link' to='/'>
       <Button text='Home' className='nav__button1'/>
       </NavLink>
-      <Button onClick={conectado ? null : openBox} className='nav__button2' text={conectado ? currentAccount :'connect wallet'}/>
+      <Button onClick={active ? null : openBox} className='nav__button2' text={active ? view :'connect wallet'}/>
       {box && <BoxConnect/>}
     </nav>
   )

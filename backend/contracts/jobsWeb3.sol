@@ -42,6 +42,7 @@ contract jobsWeb3 {
         string name;
         string surname;
         string presentationLetter;
+        string email;
         string portfolio;
         string linkedin;
     }
@@ -50,6 +51,7 @@ contract jobsWeb3 {
         string name,
         string surname,
         string presentationLetter,
+        string email,
         string portfolio,
         string linkedin
     );
@@ -59,8 +61,6 @@ contract jobsWeb3 {
     work[] jobsPremium;
 
     work[] _jobspremium;
-
-    profesional[] profesionales;
 
     address[] postulant;
 
@@ -191,23 +191,16 @@ contract jobsWeb3 {
         string memory _name,
         string memory _surname,
         string memory _presentationLetter,
+        string memory _email,
         string memory _portfolio,
         string memory _linkedin
     ) public {
-        profesionales.push(
-            profesional(
-                _name,
-                _surname,
-                _presentationLetter,
-                _portfolio,
-                _linkedin
-            )
-        );
-
+        
         seeProfesionales[msg.sender] = profesional(
             _name,
             _surname,
             _presentationLetter,
+            _email,
             _portfolio,
             _linkedin
         );
@@ -216,6 +209,7 @@ contract jobsWeb3 {
             _name,
             _surname,
             _presentationLetter,
+            _email,
             _portfolio,
             _linkedin
         );
@@ -249,9 +243,6 @@ contract jobsWeb3 {
         return _postulant;
     }
 
-    function returnProfesionales() public view returns (profesional[] memory) {
-        return profesionales;
-    }
 
     function withdraw() public payable onlyOwner {
         require(owner.send(address(this).balance));

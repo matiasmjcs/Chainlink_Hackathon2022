@@ -30,6 +30,7 @@ const SeeApplicants = ({close}) => {
                                 <li><stron>Name: </stron> {item.name}</li>
                                 <li><stron>Last Name: </stron> {item.surname}</li>
                                 <li><stron>Presentation Letter: </stron> {item.presentationLetter}</li>
+                                <li><stron>Email: </stron> {item.email}</li>
                                 <li><stron>linkedin: </stron> {item.linkedin}</li>
                                 <li><stron>Portfolio: </stron> {item.portfolio}</li>
                             </ul>

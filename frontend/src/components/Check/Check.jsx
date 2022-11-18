@@ -3,9 +3,9 @@ import './Check.css'
 
 const Check = ({ type, name, onChange }) => {
   return (
-      <label class="switch">
+      <label className="switch">
           <input type={type} name={name} onChange={onChange}/>
-              <span class="slider"></span>
+              <span className="slider"></span>
       </label>
   )
 }

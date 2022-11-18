@@ -1,6 +1,6 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
-import Loading from '../components/Loading/Loading'
+import Loading2 from '../components/loading2/Loading'
 import Abi from '../utils/jobsWeb3'
 import { ethers } from 'ethers'
 
@@ -8,7 +8,7 @@ export const UserContext = createContext()
 
 const UserProvider = ({children}) => {
 
-    const address = "0x508241c6d14C91816c8d91FC1Ce1D4092470bbFc";
+    const address = "0xCF71c02a6e63177f4549e3a15a7d83Ee56E04de9";
     // abi
     const abi = Abi.abi;
 
@@ -24,6 +24,15 @@ const UserProvider = ({children}) => {
     const [redState, setRedState] = useState('Switch Network')
     const [conectado, setConectado] = useState(false)
     const [txReverse, setTxReverse] = useState([])
+    const [search, setSearch] = useState('')
+    const [error, setError] = useState(false)
+    const [error_, setError_] = useState('')
+    const [success, setSuccess] = useState(false)
+    const [success_, setSuccess_] = useState('')
+    const [truee, settruee] = useState(false)
+    
+
+    let searchJob = []
 
     let applicants = []
     let Applicants = []
@@ -38,7 +47,7 @@ const UserProvider = ({children}) => {
 
     const Switch = async () => {
         try{
-            setRedState(<Loading />)
+            setRedState(<Loading2 />)
             await window.ethereum.request({
                 method: 'wallet_switchEthereumChain',
                 params: [{ chainId: '0x13881' }],
@@ -65,7 +74,7 @@ const UserProvider = ({children}) => {
         try {
             const { ethereum } = window;
             setActive(true);
-            setView(<Loading />)
+            setView(<Loading2 />)
             setLoading(true)
             if (!ethereum) {
                 console.log("please install MetaMask");
@@ -76,27 +85,24 @@ const UserProvider = ({children}) => {
                 });
                 setConectado(true)
                 const chainId = await window.ethereum.request({ method: 'eth_chainId' });
-                const binanceTestChainId = '0x13881'
-                if (chainId === binanceTestChainId) {
+                const mumbaiChainId = '0x13881'
+                if (chainId === mumbaiChainId) {
                     setRed(true)
                 } else {
                     setTimeout(() => {
                         setRed(false)
                     }, 1500)
                     setRedState('Switch Network')
-
-
                 }
-
                 setTimeout(() => {
                     setCurrentAccount(accounts[0]);
-                    setView('view user')
+                    setView(accounts[0])
                 }, 800);
                 setBox(false)
                 setLoading(false)
+                setView(currentAccount)
             },1000)
             
-
         } catch (error) {
             console.log(error);
             setView('connect Wallet')
@@ -109,8 +115,6 @@ const UserProvider = ({children}) => {
             })
         }
     }
-
-    
 
     const Disconnet = () => {
         setActive(false)
@@ -140,7 +144,6 @@ const UserProvider = ({children}) => {
                 );
                 const tx = await contract.returnpostulant(_Id);
                  applicants = [...tx].reverse()
-                console.log(applicants)
                 const viewapplicant = async (_aplicant) => {
                     try {
                         const { ethereum } = window;
@@ -155,7 +158,6 @@ const UserProvider = ({children}) => {
                                 signer
                             );
                             const tx = await contract.seeProfesionales(_aplicant);
-                            console.log(tx)
                             Applicants.push(tx)
                         }
                     } catch (error) {
@@ -170,9 +172,6 @@ const UserProvider = ({children}) => {
                 applicants.map(tx => {
                     viewapplicant(tx)
                 })
-
-                console.log(Applicants)
-                
             }
         } catch (error) {
             Swal.fire({
@@ -184,7 +183,113 @@ const UserProvider = ({children}) => {
         }
     }
 
-    
+    useEffect(() => {
+        ejecucion()
+    }, [search])
+
+    const [jobsfinal, setjobsfinal] = useState([])
+
+    let jobs = []
+    let jobsPremium = []
+    let jobsFinal = []
+    const viewJobs = async () => {
+        try {
+            const { ethereum } = window;
+
+            if (ethereum) {
+                const provider = new ethers.providers.Web3Provider(ethereum, "any");
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(
+                    address,
+                    abi,
+                    signer
+                );
+                const tx = await contract.returnjobs();
+                jobs = [...tx].reverse()
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'an error has occurred',
+            })
+            console.log(error);
+        }
+    }
+
+    const viewJobsPremium = async () => {
+        try {
+            const { ethereum } = window;
+
+            if (ethereum) {
+                const provider = new ethers.providers.Web3Provider(ethereum, "any");
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(
+                    address,
+                    abi,
+                    signer
+                );
+                const tx = await contract.returnjobsPremium();
+                jobsPremium = [...tx].reverse()
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'an error has occurred',
+            })
+            console.log(error);
+        }
+    }
+
+    const ejecucion = () => {
+        viewJobs()
+        viewJobsPremium()
+        setTimeout(() => {
+
+            jobsFinal = [...jobsPremium, ...jobs]
+            setjobsfinal(jobsFinal)
+        }, 1500)
+
+    }
+
+    if (!search >= 1) {
+        searchJob = jobsfinal
+    } else {
+        searchJob = jobsfinal.filter(job => {
+            const jobTitle = job.MarketStall.toLowerCase()
+            const jobSearch = search.toLowerCase()
+            return jobTitle.includes(jobSearch)
+        })
+    }
+
+    const Postulate = async (_id) => {
+        try {
+            const { ethereum } = window;
+
+            if (ethereum) {
+                settruee(true)
+                const provider = new ethers.providers.Web3Provider(ethereum, "any");
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(
+                    address,
+                    abi,
+                    signer
+                );
+                const tx = await contract.postulate(_id);
+                await tx.wait();
+                settruee(false)
+                setSuccess(true)
+                setSuccess_('You have successfully applied for the job')
+
+            }
+        } catch (error) {
+            setError(true)
+            settruee(false)
+            setError_('An error occurred while trying to apply')
+            console.log(error);
+        }
+    }
 
     return (
         <UserContext.Provider 
@@ -209,7 +314,22 @@ const UserProvider = ({children}) => {
                 applicants,
                 Applicants,
                 setTxReverse,
-                txReverse
+                txReverse,
+                jobsfinal,
+                searchJob,
+                search,
+                setSearch,
+                Postulate,
+                ejecucion,
+                error,
+                setError,
+                setError_,
+                error_,
+                success,
+                setSuccess,
+                success_,
+                setSuccess_,
+                truee
             }}>
             {children}
         </UserContext.Provider>

@@ -10,18 +10,15 @@ const Welcome = () => {
         <h1>Jobs <br/> Web3</h1>
         <div className='container__button'>
           <NavLink to='/Jobs'>
-
-          <Button text='Search for a Job' />
+            <Button text='Search for a Job' />
           </NavLink>
-        
-        <NavLink to='/postjobs'>
-          <Button text='Post a Job' />
-        </NavLink>          
-
-          <Button text='register as a professional'/>
-          <Button text='look for a job/professional'/>
+          <NavLink to='/postjobs'>
+            <Button text='Post a Job' />
+          </NavLink>  
+          <NavLink to='/register'>
+            <Button text='register as a professional'/>
+          </NavLink>        
         </div>
-
       </div>
     </div>
   )
