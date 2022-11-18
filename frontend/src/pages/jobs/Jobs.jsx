@@ -21,7 +21,7 @@ const Jobs = () => {
     
 
 
-    const { viewapplicants, searchJob, Postulate, ejecucion, error, success, truee } = useContext(UserContext)
+    const { viewapplicants, searchJob, Postulate, ejecucion, error, success, truee, active, setError_, setError } = useContext(UserContext)
 
     
     const openseeApplicants = () => {
@@ -30,6 +30,10 @@ const Jobs = () => {
     
     const closeseeApplicants = () => {
         setseeApplicants(false)
+    }
+    const verificar = () => {
+        setError(true)
+        setError_('you need to have a connected wallet')
     }
 
     return (
@@ -40,26 +44,33 @@ const Jobs = () => {
                         <div className="containerJobs__div">
                         {searchJob.map((tx, i) => (
                                <ul key={i} className="containerJobs__ul">
-                                   <li className="containerJobs__li--description">  <span>Job description: </span> <span>{tx.description}</span> </li>
+                                   <li className="containerJobs__li--description">  <b>Job description: </b> <span>{tx.description}</span> </li>
                                 <div className="containerJobs__lidiv">
 
-                                   <li className="containerJobs__li"><span>Job title:  </span> <span> {tx.MarketStall}</span> </li>
-                                    <li className="containerJobs__li"> <span>Name of the company:  </span><span> {tx.business}</span> </li>
-                                   <li className="containerJobs__li"> <span>Country:  </span> <span>{tx.country}</span> </li>
-                                   <li className="containerJobs__li"> <span>Salary:  </span> <span>{tx.salary.toNumber()}</span> </li>
-                                   <li className="containerJobs__li"> <span>vacancies:  </span> <span>{tx.vacancies.toNumber()}</span> </li>
-                                <li className="containerJobs__li--id"><span>Job Id:  </span> <span className="containerJobs__span--id">{tx.id}</span> </li>
+                                   <li className="containerJobs__li"><b>Job title:  </b> <span> {tx.MarketStall}</span> </li>
+                                    <li className="containerJobs__li"> <b>Name of the company:  </b><span> {tx.business}</span> </li>
+                                   <li className="containerJobs__li"> <b>Country:  </b> <span>{tx.country}</span> </li>
+                                   <li className="containerJobs__li"> <b>Salary:  </b> <span>{tx.salary.toNumber()}</span> </li>
+                                   <li className="containerJobs__li"> <b>vacancies:  </b> <span>{tx.vacancies.toNumber()}</span> </li>
+                                <li className="containerJobs__li--id"><b>Job Id:  </b> <span className="containerJobs__span--id">{tx.id}</span> </li>
                                    
                                 <div className="containerJobs__divButton">
                                     <Button onClick={() => {
+                                        if(!active){
+                                            return (verificar())
+                                        }
                                         Postulate(tx.id)
-
+                                        window.scroll({top: 0, behavior: 'smooth'})
+                                        
 
                                     }
                                     }
                                     
                                     className='containerJobs__button' text='Postulate' />
                                     <Button onClick={()=> {
+                                            if (!active) {
+                                                return (verificar())
+                                            }
                                         viewapplicants(tx.id)
                                         openseeApplicants()
 

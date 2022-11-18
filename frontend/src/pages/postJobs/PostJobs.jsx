@@ -13,7 +13,7 @@ import Success from "../../components/success/Seccess"
 
 const PostJobs = () => {
 
-    const { error, setError, setError_, success, setSuccess, setSuccess_} = useContext(UserContext)
+    const { error, setError, setError_, success, setSuccess, setSuccess_, active} = useContext(UserContext)
 
     const address = "0xCF71c02a6e63177f4549e3a15a7d83Ee56E04de9";
     // abi
@@ -110,7 +110,9 @@ const PostJobs = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        if (!active) {
+            return aprobado('Must be connected to a wallet')
+        }
         if (!input.marketstal.trim() || !input.business.trim() || !input.country.trim() || !input.description.trim() || !input.contact.trim() ){
             return aprobado('All fields are required')
         }

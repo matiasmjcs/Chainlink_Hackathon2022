@@ -65,3 +65,28 @@
         justify-items: center;
     }
 }
+
+.container__button-inactive {
+    display: grid;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        gap: 10px;
+    
+        @include media-up(sm) {
+            grid-auto-flow: row;
+        }
+    
+        @include media-up(md) {
+            grid-auto-flow: column;
+            grid-template-rows: 1fr 1fr;
+            justify-items: center;
+        }
+    }
+
+    .container__button-inactive h2 {
+        text-align: center;
+        font-family: 'Space Grotesk', sans-serif;
+        color: $color4;
+
+    }

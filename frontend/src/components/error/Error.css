@@ -13,8 +13,6 @@
 
 .boxError__div {
   position: relative;
-  width: 400px;
-  height: 300px;
   background: rgb(255, 255, 255);
   display: grid;
   justify-items: center;
@@ -25,6 +23,18 @@
   -webkit-animation: error 0.2s linear 1;
           animation: error 0.2s linear 1;
   font-family: "Space Grotesk", sans-serif;
+}
+@media screen and (min-width: 300px) {
+  .boxError__div {
+    width: 80%;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 430px) {
+  .boxError__div {
+    width: 400px;
+    height: 300px;
+  }
 }
 
 @-webkit-keyframes error {

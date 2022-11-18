@@ -11,7 +11,7 @@ import Success from "../../components/success/Seccess"
 
 const Register = () => {
 
-    const { error, setError, setError_ , success, setSuccess, setSuccess_} = useContext(UserContext)
+    const { error, setError, setError_ , success, setSuccess, setSuccess_, active} = useContext(UserContext)
 
     const address = "0xCF71c02a6e63177f4549e3a15a7d83Ee56E04de9";
     // abi
@@ -74,6 +74,9 @@ const Register = () => {
 
         const handleSubmit = (e) => {
             e.preventDefault()
+            if(!active){
+                return aprobado('Must be connected to a wallet')
+            }
 
             if (!input.name.trim() || !input.lastname.trim() || !input.presentation.trim() || !input.email.trim() || !input.portfolio.trim() || !input.linkedin.trim()){
                 return aprobado('All fields are required')

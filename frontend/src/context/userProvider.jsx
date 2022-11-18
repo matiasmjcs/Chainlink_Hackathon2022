@@ -84,19 +84,20 @@ const UserProvider = ({children}) => {
                 const mumbaiChainId = '0x13881'
                 if (chainId === mumbaiChainId) {
                     setRed(true)
+                    setView('disconnect wallet')
                 } else {
                     setTimeout(() => {
                         setRed(false)
                     }, 1500)
                     setRedState('Switch Network')
+                    setView('disconnect wallet')
+
                 }
                 setTimeout(() => {
                     setCurrentAccount(accounts[0]);
-                    setView(accounts[0])
                 }, 800);
                 setBox(false)
                 setLoading(false)
-                setView(currentAccount)
             },1000)
             
         } catch (error) {
@@ -157,11 +158,8 @@ const UserProvider = ({children}) => {
                             Applicants.push(tx)
                         }
                     } catch (error) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'an error has occurred',
-                        })
+                        setError(true)
+                        setError_('an error has occurred')
                         console.log(error);
                     }
                 }
@@ -170,11 +168,8 @@ const UserProvider = ({children}) => {
                 })
             }
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'an error has occurred',
-            })
+            setError(true)
+            setError_('an error has occurred')
             console.log(error);
         }
     }
@@ -204,11 +199,8 @@ const UserProvider = ({children}) => {
                 jobs = [...tx].reverse()
             }
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'an error has occurred',
-            })
+            setError(true)
+            setError_('an error has occurred')
             console.log(error);
         }
     }
@@ -229,11 +221,8 @@ const UserProvider = ({children}) => {
                 jobsPremium = [...tx].reverse()
             }
         } catch (error) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'an error has occurred',
-            })
+            setError(true)
+            setError_('an error has occurred')
             console.log(error);
         }
     }
@@ -291,7 +280,7 @@ const UserProvider = ({children}) => {
         <UserContext.Provider 
             value={{ 
                 currentAccount,
-                active, 
+                active,
                 view, 
                 connectWallet, 
                 Disconnet, 

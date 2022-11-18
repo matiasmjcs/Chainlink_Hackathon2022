@@ -77,4 +77,30 @@
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
   }
+}
+
+.container__button-inactive {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+}
+@media screen and (min-width: 300px) {
+  .container__button-inactive {
+    grid-auto-flow: row;
+  }
+}
+@media screen and (min-width: 750px) {
+  .container__button-inactive {
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+  }
+}
+
+.container__button-inactive h2 {
+  text-align: center;
+  font-family: "Space Grotesk", sans-serif;
+  color: rgba(34, 34, 34, 0.6);
 }/*# sourceMappingURL=welcome.css.map */
