@@ -42,7 +42,11 @@ const Jobs = () => {
             <>
                             <SearchJobs/>
                         <div className="containerJobs__div">
-                        {searchJob.map((tx, i) => (
+                        {searchJob.length === 0 ? 
+                            <>
+                            <p>No jobs found</p>  
+                            </> :
+                            searchJob.map((tx, i) => (
                                <ul key={i} className="containerJobs__ul">
                                    <li className="containerJobs__li--description">  <b>Job description: </b> <span>{tx.description}</span> </li>
                                 <div className="containerJobs__lidiv">

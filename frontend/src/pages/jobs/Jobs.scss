@@ -29,7 +29,14 @@
     gap: 20px;
     width: 100%;
     margin: 20px;
+    min-height: 400px;
  }
+
+ .containerJobs__div p {
+    color: $color4;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
 
 .containerJobs__ul {
     list-style: none;

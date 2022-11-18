@@ -13,7 +13,7 @@ const Register = () => {
 
     const { error, setError, setError_ , success, setSuccess, setSuccess_, active} = useContext(UserContext)
 
-    const address = "0xCF71c02a6e63177f4549e3a15a7d83Ee56E04de9";
+    const address = "0x7910A8643dCCfbBAC635d202dE6F5dDFFA3925A2";
     // abi
     const abi = Abi.abi;
 

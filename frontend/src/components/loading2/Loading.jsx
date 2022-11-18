@@ -3,7 +3,7 @@ import './Loading.css'
 
 const Loading2 = () => {
   return (
-      <div class="ping"></div>
+      <div className="ping"></div>
   )
 }
 

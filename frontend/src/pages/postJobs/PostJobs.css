@@ -71,4 +71,14 @@ textarea {
 
 .container-button {
   margin: 20px 0;
+}
+
+.container-input2 {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 10px;
+}
+
+.container-span {
+  color: rgba(34, 34, 34, 0.6);
 }/*# sourceMappingURL=PostJobs.css.map */

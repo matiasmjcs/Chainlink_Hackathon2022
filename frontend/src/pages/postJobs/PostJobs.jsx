@@ -15,7 +15,7 @@ const PostJobs = () => {
 
     const { error, setError, setError_, success, setSuccess, setSuccess_, active} = useContext(UserContext)
 
-    const address = "0xCF71c02a6e63177f4549e3a15a7d83Ee56E04de9";
+    const address = "0x7910A8643dCCfbBAC635d202dE6F5dDFFA3925A2";
     // abi
     const abi = Abi.abi;
 
@@ -87,7 +87,7 @@ const PostJobs = () => {
                     abi,
                     signer
                 );
-                const tx = await contract.postWorkPremium(input.marketstal, input.business, input.country, input.description, input.vacancies, input.salary, input.contact);
+                const tx = await contract.postWorkPremium(input.marketstal, input.business, input.country, input.description, input.vacancies, input.salary, input.contact, { value: ethers.utils.parseEther("0.2") });
                 await tx.wait();
                 settruee(false)
                 setInput(initialState)
@@ -145,7 +145,11 @@ const PostJobs = () => {
                     <Input placeholder='vacancies' onChange={handleChange} value={input.vacancies} name='vacancies' type='number' />
                     <Input placeholder='salary' onChange={handleChange} value={input.salary} name='salary' type='number' />
                     <Input placeholder='contact' onChange={handleChange} value={input.contact} name='contact' type='text' />
-                    <Check name='checkbox' type='checkbox' onChange={handleChange} checked={input.checkbox}/>
+                            <div className="container-input2">
+                        <Check name='checkbox' type='checkbox' onChange={handleChange} checked={input.checkbox}/>
+                                <span className="container-span">post premium work worth 0.2 matic (premium work will appear <br/>
+                                    first and will be removed every Sunday)</span>
+                    </div>
                 </div> 
                 <div className="container-button">
                             <Button text='post'/>
