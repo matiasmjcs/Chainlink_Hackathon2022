@@ -55,7 +55,8 @@ const Jobs = () => {
                                     <li className="containerJobs__li"> <b>Name of the company:  </b><span> {tx.business}</span> </li>
                                    <li className="containerJobs__li"> <b>Country:  </b> <span>{tx.country}</span> </li>
                                    <li className="containerJobs__li"> <b>Salary:  </b> <span>{tx.salary.toNumber()}</span> </li>
-                                   <li className="containerJobs__li"> <b>vacancies:  </b> <span>{tx.vacancies.toNumber()}</span> </li>
+                                        <li className="containerJobs__li"> <b>vacancies:  </b> <span>{tx.vacancies.toNumber()}</span> </li>
+                                        <li className="containerJobs__li"> <b>Email:  </b> <span>{tx.Contact}</span> </li>
                                 <li className="containerJobs__li--id"><b>Job Id:  </b> <span className="containerJobs__span--id">{tx.id}</span> </li>
                                    
                                 <div className="containerJobs__divButton">

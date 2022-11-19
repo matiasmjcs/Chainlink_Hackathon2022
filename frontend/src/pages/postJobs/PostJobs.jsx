@@ -15,7 +15,7 @@ const PostJobs = () => {
 
     const { error, setError, setError_, success, setSuccess, setSuccess_, active} = useContext(UserContext)
 
-    const address = "0x7910A8643dCCfbBAC635d202dE6F5dDFFA3925A2";
+    const address = "0xcc829d7680689bd282253A8929BAF5e131d36EE9";
     // abi
     const abi = Abi.abi;
 
@@ -147,8 +147,7 @@ const PostJobs = () => {
                     <Input placeholder='contact' onChange={handleChange} value={input.contact} name='contact' type='text' />
                             <div className="container-input2">
                         <Check name='checkbox' type='checkbox' onChange={handleChange} checked={input.checkbox}/>
-                                <span className="container-span">post premium work worth 0.2 matic (premium work will appear <br/>
-                                    first and will be removed every Sunday)</span>
+                                <span className="container-span">post premium work worth 0.2 matic (premium jobs are removed every 2-3 days)</span>
                     </div>
                 </div> 
                 <div className="container-button">

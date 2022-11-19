@@ -69,6 +69,18 @@ textarea {
   font-family: "Space Grotesk", sans-serif;
 }
 
+textarea::-moz-placeholder {
+  color: #222;
+}
+
+textarea:-ms-input-placeholder {
+  color: #222;
+}
+
+textarea::placeholder {
+  color: #222;
+}
+
 .container-button {
   margin: 20px 0;
 }

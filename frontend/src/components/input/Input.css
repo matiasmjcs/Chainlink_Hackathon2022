@@ -10,4 +10,16 @@ input {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   font-family: "Space Grotesk", sans-serif;
+}
+
+input::-moz-placeholder {
+  color: #222;
+}
+
+input:-ms-input-placeholder {
+  color: #222;
+}
+
+input::placeholder {
+  color: #222;
 }/*# sourceMappingURL=Input.css.map */

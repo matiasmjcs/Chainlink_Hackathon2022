@@ -7,7 +7,7 @@ export const UserContext = createContext()
 
 const UserProvider = ({children}) => {
 
-    const address = "0x7910A8643dCCfbBAC635d202dE6F5dDFFA3925A2";
+    const address = "0xcc829d7680689bd282253A8929BAF5e131d36EE9";
     // abi
     const abi = Abi.abi;
 
@@ -29,6 +29,7 @@ const UserProvider = ({children}) => {
     const [success, setSuccess] = useState(false)
     const [success_, setSuccess_] = useState('')
     const [truee, settruee] = useState(false)
+    const [connect, setconnect] = useState(false)
     
 
     let searchJob = []
@@ -69,16 +70,21 @@ const UserProvider = ({children}) => {
     const connectWallet = async () => {
         try {
             const { ethereum } = window;
-            setActive(true);
             setView(<Loading2 />)
             setLoading(true)
             if (!ethereum) {
                 console.log("please install MetaMask");
+                setError(true)
+                setError_('an error has occurred')
+                setView('connect Wallet')
+                setLoading(false)
+
+
             }
-            setTimeout(async ()=> {
                 const accounts = await ethereum.request({
                     method: 'eth_requestAccounts'
                 });
+                setActive(true);
                 setConectado(true)
                 const chainId = await window.ethereum.request({ method: 'eth_chainId' });
                 const mumbaiChainId = '0x13881'
@@ -98,18 +104,18 @@ const UserProvider = ({children}) => {
                 }, 800);
                 setBox(false)
                 setLoading(false)
-            },1000)
-            
+        
         } catch (error) {
-            console.log(error);
+            setconnect(true)
+            setError(true)
+            setError_('an error has occurred')
+            console.log('no funciono')
             setView('connect Wallet')
             setLoading(false)
             setActive(false);
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'the wallet has not been connected',
-            })
+            console.log(error);
+            console.log('no funciono')
+            
         }
     }
 
@@ -314,7 +320,8 @@ const UserProvider = ({children}) => {
                 setSuccess,
                 success_,
                 setSuccess_,
-                truee
+                truee,
+                connect
             }}>
             {children}
         </UserContext.Provider>

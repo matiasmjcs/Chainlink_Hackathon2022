@@ -3,15 +3,12 @@ import './welcome.css'
 import Button from '../../components/Button/Button'
 import { NavLink } from 'react-router-dom'
 import { UserContext } from '../../context/userProvider'
+import Error from '../../components/error/Error'
 
 const Welcome = () => {
 
-  const { active, setError, setError_, openBox } = useContext(UserContext)
+  const { active, openBox, error, connect } = useContext(UserContext)
 
-  const validation = () => {
-    setError(true)
-    setError_('Must be connected to a wallet')
-  } 
 
   return (
     <div className='container'>
@@ -36,6 +33,7 @@ const Welcome = () => {
 
 }  
       </div>
+      {(error && connect) && <Error/>}
     </div>
   )
 }

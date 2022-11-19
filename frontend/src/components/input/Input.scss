@@ -12,3 +12,7 @@ input
     border-radius: 5px;
     font-family: 'Space Grotesk', sans-serif;
 }
+
+input::placeholder {
+    color: #222;
+}
