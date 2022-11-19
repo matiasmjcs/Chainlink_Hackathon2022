@@ -9,7 +9,7 @@
   </div>
   
   <div align="center">
-     <a align="center" href="" target="_blank">
+     <a align="center" href="https://jobsweb3.netlify.app/" target="_blank">
        <h1 align="center">JobsWeb3</h1>
     </a>
   <p>
