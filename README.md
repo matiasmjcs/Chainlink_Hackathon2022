@@ -84,12 +84,22 @@
   
   
     
- # I first set it to run every 2 minutes to make sure it's working properly.
+ # I first set it to run every 3 minutes to make sure it's working properly.
     
  
   
   <div align="center">
     <img src='./frontend/src/img/jobs9.png' height=350 />
+  </div>
+  
+  <div align="center">
+  
+# finally it was configured to run every 2-3 days
+  
+   </div>
+  
+  <div align="center">
+    <img src='./frontend/src/img/jobs4min.png' height=350 />
   </div>
   
   <div align="center">
@@ -129,6 +139,13 @@
   </div>
 
   
+  <div align="center">
+  
+# full stack
+
+javaScript, Solidity, Hardhat, React.js, Polygon Testnet, QuickNode, ethers.js, Sass, npm, Node.js, fortawesome, web3uikit, Git, Github,  Netlify
+  
+   </div>
   
   
  
