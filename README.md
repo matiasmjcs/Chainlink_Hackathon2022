@@ -146,6 +146,15 @@
 javaScript, Solidity, Hardhat, React.js, Polygon Testnet, QuickNode, ethers.js, Sass, npm, Node.js, fortawesome, web3uikit, Git, Github,  Netlify
   
    </div>
+   
+   
+  <div align="center">
+  
+# Smart contract
+
+# 0xcc829d7680689bd282253A8929BAF5e131d36EE9
+  
+   </div>
   
   
  
